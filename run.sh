@@ -8,11 +8,12 @@ then
 fi
 FLAGS=${@:2}
 magic source/
+magiccode=$?
 rock -q +-Wall $ARGS $FLAGS $USE_FILE
 exitcode=$?
-if [[ $exitcode -eq 0 && -f ./Main ]]
+if [[ $exitcode -eq 0 && $magiccode -eq 0 && -f ./Main ]]
 then
-avconv -i ~/Video/HD\ Pole\ 1.MOV -f rawvideo -pix_fmt yuv420p -| ./Main |  avplay -f rawvideo -pix_fmt gray -s 1920x1080 -
+avconv -i ~/Video/HD\ Pole\ 1.MOV -f rawvideo -pixel_format yuv420p -| ./Main |  avplay -f rawvideo -pixel_format gray -video_size 1920x1080 -
 fi
 exit $exitcode
 
