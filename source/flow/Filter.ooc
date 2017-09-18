@@ -1,22 +1,24 @@
+use base
 use flow
 
+import Sinks
+
 Filter: abstract class {
-	_outputs: Vector<VectorList<Func(Frame)>>
+	_outputs: Sinks[]
 	init: func (outputCount: Int) {
-		this _outputs = HeapVector<VectorList<Func(Frame)>> new(outputCount)
+		this _outputs = Sinks[outputCount] new()
 		for (i in 0 .. outputCount)
-			this _outputs[i] = VectorList<Func(Frame)> new()
+			this _outputs[i] = Sinks new()
 	}
 	getInput: virtual func (index: Int) -> Func(Frame) {
 		func(frame: Frame) { }
 	}
 	send: func (output: Int, frame: Frame) {
-		sendList := this _outputs[output]
-		for (i in 0 .. sendList count)
-			sendList[i](frame)
+		receivers := this _outputs[output]
+		receivers call(frame)
 	}
 	connect: func (output: Int, next: This, input: Int) -> This {
-		this _outputs[output] add(next getInput(input))
+		this _outputs[output] = this _outputs[output] add(next getInput(input))
 		next
 	}
 	connect: func ~defaultOutput (next: This, input: Int) -> This {
