@@ -1,7 +1,7 @@
 use draw
 use flow
 
-Output: class extends Consumer {
+Display: class extends Consumer {
 	_stream: FStream
 	init: func (=_stream) {
 		super()
