@@ -7,7 +7,7 @@ then
 	ARGS=$(cat rock_arguments.txt)
 fi
 FLAGS=${@:2}
-
+magic source/
 rock -q +-Wall $ARGS $FLAGS $USE_FILE
 exitcode=$?
 if [[ $exitcode -eq 0 && -f ./Main ]]
@@ -16,3 +16,4 @@ then
 	exitcode=$?
 fi
 exit $exitcode
+
