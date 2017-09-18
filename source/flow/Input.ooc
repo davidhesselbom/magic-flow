@@ -1,4 +1,5 @@
 use base
+use concurrent
 use draw
 use geometry
 use io
@@ -18,10 +19,11 @@ Input: class extends Producer {
 		process stdOut = Pipe new()
 		reader := process stdOut reader()
 		process executeNoWait()
+		Thread yield()
 		while (reader hasNext()) {
 			readCount := 0
-			while (byteCount > readCount)
-				readCount += reader read(buffer pointer as CString, readCount, byteCount - readCount)
+			while (byteCount > (readCount += reader read(buffer pointer as CString, readCount, byteCount - readCount)))
+				Thread yield()
 			image := RasterYuv420Semiplanar new(buffer, this _resolution, this _resolution x, this _resolution area)
 			this send(Frame new (this _serial, image))
 			this _serial += 1
