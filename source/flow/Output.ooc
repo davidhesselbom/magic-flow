@@ -7,7 +7,6 @@ Output: class extends Consumer {
 		super()
 	}
 	receive: override func (frame: Frame) {
-		"!" print()
 		//this _stream write(frame data as RasterYuv420Semiplanar y buffer pointer as Char*, 0, frame data size area)
 	}
 }

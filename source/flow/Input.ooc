@@ -16,11 +16,14 @@ Input: class extends Producer {
 		buffer := ByteBuffer new(byteCount)
 		process := Process new(["avconv", "-i", this _filename, "-f", "rawvideo", "-pixel_format", "yuv420p", "-"])
 		process stdOut = Pipe new()
+		reader := process stdOut reader()
 		process executeNoWait()
-		while (process stdOut read(buffer pointer as CString, byteCount) >= byteCount) {
+		while (reader hasNext()) {
+			readCount := 0
+			while (byteCount > readCount)
+				readCount += reader read(buffer pointer as CString, readCount, byteCount - readCount)
 			image := RasterYuv420Semiplanar new(buffer, this _resolution, this _resolution x, this _resolution area)
 			this send(Frame new (this _serial, image))
-			this _serial toString() println()
 			this _serial += 1
 			buffer = ByteBuffer new(byteCount)
 		}
