@@ -6,5 +6,8 @@ Requires: draw
 Imports: Consumer
 Imports: Filter
 Imports: Frame
+Imports: Identity
+Imports: Input
 Imports: Modifier
+Imports: Output
 Imports: Producer

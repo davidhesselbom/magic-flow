@@ -1,12 +1,12 @@
 use draw
 
 Frame: cover {
-	_serial: Long
+	_serial: ULong
 	serial ::= this _serial
 	_data: Image
 	data ::= this _data
 	referenceCount ::= this _data referenceCount
-	init: func@ (serial: Long, data: Image) {
+	init: func@ (serial: ULong, data: Image) {
 		this _serial = serial
 		this _data = data
 	}
