@@ -13,7 +13,7 @@ rock -q +-Wall $ARGS $FLAGS $USE_FILE
 exitcode=$?
 if [[ $exitcode -eq 0 && $magiccode -eq 0 && -f ./Main ]]
 then
-avconv -i ~/Video/HD\ Pole\ 1.MOV -f rawvideo -pixel_format yuv420p -| ./Main |  avplay -f rawvideo -pixel_format gray -video_size 1920x1080 -
+./Main 1920,1080 ~/Video/HD\ Pole\ 1.MOV
 fi
 exit $exitcode
 
