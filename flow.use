@@ -1,0 +1,10 @@
+Name: Flow
+Description: Framework for handling flowing video data.
+SourcePath: source/flow
+Requires: base
+Requires: draw
+Imports: Consumer
+Imports: Filter
+Imports: Frame
+Imports: Modifier
+Imports: Producer
