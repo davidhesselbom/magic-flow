@@ -11,9 +11,10 @@ magic source/
 magiccode=$?
 rock -q +-Wall $ARGS $FLAGS $USE_FILE
 exitcode=$?
-if [[ $exitcode -eq 0 && $magiccode -eq 0 && -f ./Main ]]
+mv Main umpr
+if [[ $exitcode -eq 0 && $magiccode -eq 0 && -f ./umpr ]]
 then
-./Main 1920,1080 ~/Video/HD\ Pole\ 1.MOV
+./umpr 1920,1080 ~/Video/HD\ Pole\ 1.MOV
 fi
 exit $exitcode
 
