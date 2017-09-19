@@ -16,7 +16,6 @@ Frame: cover {
 	updateReferenceCount: func (delta: Int) {
 		this _data referenceCount update(delta)
 		this _referenceCount += delta
-		(" frame: " + this serial toString() + " delta: " + delta + " refC: " + this _data referenceCount toString()) println()
 	}
 	increaseReferenceCount: func { this updateReferenceCount(1) }
 	decreaseReferenceCount: func { this updateReferenceCount(-1) }
