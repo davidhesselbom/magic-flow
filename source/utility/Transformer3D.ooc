@@ -2,7 +2,7 @@ use draw
 use flow
 use geometry
 
-Transform3D: class extends Modifier {
+Transformer3D: class extends Modifier {
 	_transform := FloatTransform3D createRotationX(5.0f toRadians())
 	init: func {
 		super()

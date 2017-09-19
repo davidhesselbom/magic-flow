@@ -3,7 +3,7 @@ Description: Utility filters for flow.
 SourcePath: source/utility
 Requires: base
 Requires: draw
-Imports: Transform3D
+Imports: Transformer3D
 Imports: FromGpu
 Imports: ToGpu
 Imports: LumaInverter
