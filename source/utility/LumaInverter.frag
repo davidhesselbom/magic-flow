@@ -7,6 +7,5 @@ out float outColor;
 
 void main() {
 	float y = texture(texture0, fragmentTextureCoordinate).r;
-	vec2 uv = texture(texture1, fragmentTextureCoordinate).rg;
 	outColor = 1.0 - y;
 }

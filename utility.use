@@ -6,4 +6,4 @@ Requires: draw
 Imports: Transform3D
 Imports: FromGpu
 Imports: ToGpu
-Imports: ColorInverter
+Imports: LumaInverter
