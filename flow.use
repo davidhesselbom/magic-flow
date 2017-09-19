@@ -4,8 +4,6 @@ SourcePath: source/flow
 Requires: base
 Requires: draw
 Imports: Consumer
-Imports: Decode
-Imports: Display
 Imports: Filter
 Imports: Frame
 Imports: Identity

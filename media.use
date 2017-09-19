@@ -1,0 +1,8 @@
+Name: Media
+Description: Handles input and output of video data.
+SourcePath: source/media
+Requires: base
+Requires: draw
+Requires: flow
+Imports: Decode
+Imports: Display
