@@ -13,8 +13,8 @@ ColorInverter: class extends Modifier {
 		map := OpenGLMapTransform new(slurp("ColorInverter.frag"), this _context as OpenGLContext)
 		map add("texture0", input y)
 		map add("texture1", input uv)
-		result := input create()
+		result := input y create()
 		DrawState new(result) setMap(map) draw()
-		frame update(result)
+		frame update(this _context createYuv420Semiplanar(result as GpuImage, input uv))
 	}
 }
