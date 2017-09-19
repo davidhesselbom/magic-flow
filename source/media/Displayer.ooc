@@ -3,7 +3,7 @@ use io
 use geometry
 use flow
 
-Display: class extends Consumer {
+Displayer: class extends Consumer {
 	_process: Process
 	_writer: PipeWriter
 	init: func {

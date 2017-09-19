@@ -4,6 +4,6 @@ SourcePath: source/media
 Requires: base
 Requires: draw
 Requires: flow
-Imports: Decode
-Imports: Display
-Imports: Save
+Imports: Decoder
+Imports: Displayer
+Imports: Saver

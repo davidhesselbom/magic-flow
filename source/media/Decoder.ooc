@@ -5,7 +5,7 @@ use geometry
 use io
 use flow
 
-Decode: class extends Producer {
+Decoder: class extends Producer {
 	_serial: ULong = 0
 	_resolution: IntVector2D
 	_filename: String

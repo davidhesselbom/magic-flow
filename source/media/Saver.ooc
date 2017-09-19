@@ -4,7 +4,7 @@ use geometry
 use flow
 import io/[Writer, FileWriter]
 
-Save: class extends Consumer {
+Saver: class extends Consumer {
 	_writer: Writer
 	_filename: String
 	init: func (=_filename) {
