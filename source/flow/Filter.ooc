@@ -15,7 +15,13 @@ Filter: abstract class {
 	}
 	send: func (output: Int, frame: Frame) {
 		receivers := this _outputs[output]
-		receivers call(frame)
+		receiverCount := 0
+		receivers apply(func(sink: Func(Frame)) {
+			frame increaseReferenceCount()
+			sink(frame)
+			receiverCount += 1
+		})
+		frame updateReferenceCount(-receiverCount)
 	}
 	connect: func (output: Int, next: This, input: Int) -> This {
 		this _outputs[output] = this _outputs[output] add(next getInput(input))

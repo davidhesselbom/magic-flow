@@ -32,4 +32,9 @@ Sinks: class {
 			this _tail call(argument)
 		this _head(argument)
 	}
+	apply: func (callback: Func(Func(Frame))) {
+		if (this _tail != null)
+			this _tail apply(callback)
+		callback(this _head)
+	}
 }
