@@ -9,11 +9,11 @@ LumaInverter: class extends Modifier {
 		super()
 	}
 	modify: override func (frame: Frame) -> Frame {
-		input := frame data as GpuYuv420Semiplanar
+		input := frame data as OpenGLMonochrome
 		map := OpenGLMapTransform new(slurp("LumaInverter.frag"), this _context as OpenGLContext)
-		map add("texture0", input y)
-		result := input y create()
+		map add("texture0", input)
+		result := input create()
 		DrawState new(result) setMap(map) draw()
-		frame update(this _context createYuv420Semiplanar(result as GpuImage, input uv))
+		frame update(result)
 	}
 }

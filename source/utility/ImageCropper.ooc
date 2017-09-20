@@ -14,10 +14,10 @@ ImageCropper: class extends Modifier {
 		super()
 	}
 	modify: override func (frame: Frame) -> Frame {
-		input := frame data as GpuYuv420Semiplanar
-		result := input y create()
+		input := frame data as OpenGLMonochrome
+		result := input create()
 		box := FloatBox2D new(this _boxLeft, this _boxTop, this _boxWidth, this _boxHeight)
 		DrawState new(result) setInputImage(frame data) setSourceNormalized(box) draw()
-		frame update(this _context createYuv420Semiplanar(result as GpuImage, input uv))
+		frame update(result)
 	}
 }
