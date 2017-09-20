@@ -5,6 +5,7 @@ Requires: base
 Requires: draw
 Imports: FromGpu
 Imports: LumaInverter
+Imports: LumaChromaSynchronizer
 Imports: Resizer
 Imports: Transformer3D
 Imports: ToGpu
