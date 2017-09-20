@@ -5,7 +5,6 @@ Frame: cover {
 	serial ::= this _serial
 	_data: Image
 	data ::= this _data
-	_referenceCount: Int
 	init: func@ (serial: ULong, data: Image) {
 		this _serial = serial
 		this _data = data
@@ -14,8 +13,8 @@ Frame: cover {
 		This new(this serial, data)
 	}
 	updateReferenceCount: func (delta: Int) {
-		this _data referenceCount update(delta)
-		this _referenceCount += delta
+		if (this _data != null)
+			this _data referenceCount update(delta)
 	}
 	increaseReferenceCount: func { this updateReferenceCount(1) }
 	decreaseReferenceCount: func { this updateReferenceCount(-1) }
