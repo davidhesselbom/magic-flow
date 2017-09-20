@@ -16,7 +16,7 @@ Displayer: class extends Consumer {
 		this _writer write(frame data as RasterYuv420Semiplanar uv buffer pointer as CString, frame data size area / 2)
 	}
 	_start: func (size: IntVector2D) {
-		this _process = Process new(["avplay", "-f", "rawvideo", "-pixel_format", "yuv420p", "-video_size", "1920x1080", "-i", "-"])
+		this _process = Process new(["avplay", "-f", "rawvideo", "-pixel_format", "yuv420p", "-video_size", size x toString() + "x" + size y toString(), "-i", "-"])
 		this _process stdIn = Pipe new()
 		this _writer = this _process stdIn writer()
 		this _process executeNoWait()
