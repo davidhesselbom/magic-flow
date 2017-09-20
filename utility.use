@@ -4,6 +4,7 @@ SourcePath: source/utility
 Requires: base
 Requires: draw
 Imports: FromGpu
+Imports: ImageCropper
 Imports: LumaInverter
 Imports: LumaChromaSynchronizer
 Imports: Resizer
