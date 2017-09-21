@@ -3,20 +3,18 @@ use system
 use geometry
 use flow
 import io/[Writer, FileWriter]
+import DisplayWriter
 
-Saver: class extends Consumer {
+Saver: class extends DisplayWriter {
 	_writer: Writer
 	_filename: String
 	init: func (=_filename) {
 		super()
 	}
-	receive: override func (frame: Frame) {
-		if (this _writer == null)
-			this _start(frame data size)
-		this _writer write(frame data as RasterYuv420Semiplanar y buffer pointer as Char*, frame data size area)
-		this _writer write(frame data as RasterYuv420Semiplanar uv buffer pointer as Char*, frame data size area / 2)
+	write: override func (pointer: Pointer, length: Int) {
+		this _writer write(pointer as Char*, length)
 	}
-	_start: func (size: IntVector2D) {
+	start: override func (size: IntVector2D, format: String) {
 		this _writer = FileWriter new(this _filename, false)
 	}
 }
