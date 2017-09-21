@@ -26,7 +26,8 @@ GridRenderer: class extends Synchronizer {
 			case 3 =>
 				[ FloatBox2D new (0.0f, 0.0f, 0.5f, 0.5f), FloatBox2D new (0.5f, 0.0f, 0.5f, 0.5f), FloatBox2D new (0.0f, 0.5f, 0.5f, 0.5f) ]
 			case 4 =>
-				[ FloatBox2D new (0.0f, 0.0f, 0.5f, 0.5f), FloatBox2D new (0.5f, 0.0f, 0.5f, 0.5f), FloatBox2D new (0.5f, 0.5f, 0.5f, 0.5f), FloatBox2D new (0.0f, 0.5f, 0.5f, 0.5f) ]
+				// Top Left, Top Right, Bottom Left, Bottom Right
+				[ FloatBox2D new (0.0f, 0.0f, 0.5f, 0.5f), FloatBox2D new (0.5f, 0.0f, 0.5f, 0.5f), FloatBox2D new (0.0f, 0.5f, 0.5f, 0.5f), FloatBox2D new (0.5f, 0.5f, 0.5f, 0.5f) ]
 			case 6 =>
 				[ FloatBox2D new (0.0f, 0.0f, 0.33f, 0.5f), FloatBox2D new (0.33f, 0.0f, 0.33f, 0.5f),
 					FloatBox2D new (0.66f, 0.0f, 0.34f, 0.5f), FloatBox2D new (0.0f, 0.5f, 0.33f, 0.5f),
