@@ -10,11 +10,11 @@ GridRenderer: class extends Synchronizer {
 		super(this _numberOfFrames)
 	}
 	merge: override func (frames: Frame[]) -> Frame {
-		result := frames[0] data create()
+		result := frames[0] data as Image create()
 		result fill(ColorRgba red)
 		images := this _calculateGrid(frames length)
 		for (i in 0 .. frames length)
-			DrawState new(result) setInputImage(frames[i] data) setDestinationNormalized(images[i]) draw()
+			DrawState new(result) setInputImage(frames[i] data as Image) setDestinationNormalized(images[i]) draw()
 		frames[0] update(result)
 	}
 	_calculateGrid: func (count: Int) -> FloatBox2D[] {

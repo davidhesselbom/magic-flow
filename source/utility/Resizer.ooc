@@ -9,6 +9,6 @@ Resizer: class extends Modifier {
 		super()
 	}
 	modify: override func (frame: Frame) -> Frame {
-		frame update(frame data resizeTo(frame data size / this _divisor))
+		frame update(frame data as Image resizeTo(frame data as Image size / this _divisor))
 	}
 }

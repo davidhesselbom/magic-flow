@@ -8,8 +8,8 @@ Transformer3D: class extends Modifier {
 		super()
 	}
 	modify: override func (frame: Frame) -> Frame {
-		result := frame data create()
-		DrawState new(result) setFocalLengthNormalized(0.1f) setTransformReference(this _transform) setInputImage(frame data) draw()
+		result := frame data as Image create()
+		DrawState new(result) setFocalLengthNormalized(0.1f) setTransformReference(this _transform) setInputImage(frame data as Image) draw()
 		frame update(result)
 	}
 }

@@ -10,7 +10,7 @@ DisplayWriter: abstract class extends Consumer {
 		super()
 	}
 	receive: override func (frame: Frame) {
-		this _write(frame data)
+		this _write(frame data as Image)
 	}
 	_write: func (image: Image) {
 		match(image) {

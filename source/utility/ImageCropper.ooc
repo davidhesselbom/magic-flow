@@ -17,7 +17,7 @@ ImageCropper: class extends Modifier {
 		input := frame data as OpenGLMonochrome
 		result := input create()
 		box := FloatBox2D new(this _boxLeft, this _boxTop, this _boxWidth, this _boxHeight)
-		DrawState new(result) setInputImage(frame data) setSourceNormalized(box) draw()
+		DrawState new(result) setInputImage(input) setSourceNormalized(box) draw()
 		frame update(result)
 	}
 }
