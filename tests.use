@@ -1,3 +1,0 @@
-SourcePath: .
-Imports: ./test/umpr/ItemTest
-Main: umpr.ooc
