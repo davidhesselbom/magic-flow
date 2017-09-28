@@ -15,7 +15,7 @@ Decoder: class extends Producer {
 	play: func {
 		byteCount := this _resolution area * 1.5
 		buffer := ByteBuffer new(byteCount)
-		process := Process new(["avconv", "-i", this _filename, "-f", "rawvideo", "-pixel_format", "yuv420p", "-"])
+		process := Process new(["avconv", "-hide_banner", "-loglevel", "panic", "-i", this _filename, "-f", "rawvideo", "-pixel_format", "yuv420p", "-"])
 		process stdOut = Pipe new()
 		reader := process stdOut reader()
 		process executeNoWait()
