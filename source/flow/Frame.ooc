@@ -5,10 +5,7 @@ Frame: cover {
 	serial ::= this _serial
 	_data: Object
 	data ::= this _data
-	init: func@ (serial: ULong, data: Object) {
-		this _serial = serial
-		this _data = data
-	}
+	init: func@ (=_serial, =_data)
 	update: func (data: Object) -> This {
 		This new(this serial, data)
 	}
