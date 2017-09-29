@@ -3,6 +3,7 @@ Description: Utility filters for flow.
 SourcePath: source/utility
 Requires: base
 Requires: draw
+Imports: Cropper
 Imports: GridRenderer
 Imports: FromGpu
 Imports: ImageCropper
