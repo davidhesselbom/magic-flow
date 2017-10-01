@@ -9,6 +9,7 @@ Imports: FromGpu
 Imports: ImageCropper
 Imports: LumaInverter
 Imports: LumaChromaSynchronizer
+Imports: Multiplicator
 Imports: Resizer
 Imports: ToMonochrome
 Imports: Transformer3D
