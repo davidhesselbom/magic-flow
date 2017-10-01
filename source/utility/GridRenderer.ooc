@@ -19,19 +19,15 @@ GridRenderer: class extends Synchronizer {
 	}
 	_calculateGrid: func (count: Int) -> FloatBox2D[] {
 		match (count) {
-			case 1 =>
-				[ FloatBox2D new (0.0f, 0.0f, 1.0f, 1.0f) ]
-			case 2 =>
-				[ FloatBox2D new (0.0f, 0.0f, 0.5f, 1.0f), FloatBox2D new (0.5f, 0.0f, 0.5f, 1.0f) ]
-			case 3 =>
-				[ FloatBox2D new (0.0f, 0.0f, 0.5f, 0.5f), FloatBox2D new (0.5f, 0.0f, 0.5f, 0.5f), FloatBox2D new (0.0f, 0.5f, 0.5f, 0.5f) ]
-			case 4 =>
-				// Top Left, Top Right, Bottom Left, Bottom Right
-				[ FloatBox2D new (0.0f, 0.0f, 0.5f, 0.5f), FloatBox2D new (0.5f, 0.0f, 0.5f, 0.5f), FloatBox2D new (0.0f, 0.5f, 0.5f, 0.5f), FloatBox2D new (0.5f, 0.5f, 0.5f, 0.5f) ]
-			case 6 =>
-				[ FloatBox2D new (0.0f, 0.0f, 0.33f, 0.5f), FloatBox2D new (0.33f, 0.0f, 0.33f, 0.5f),
-					FloatBox2D new (0.66f, 0.0f, 0.34f, 0.5f), FloatBox2D new (0.0f, 0.5f, 0.33f, 0.5f),
-					FloatBox2D new (0.33f, 0.5f, 0.33f, 0.5f), FloatBox2D new (0.66f, 0.5f, 0.34f, 0.5f) ]
+			case 1 => [ FloatBox2D new (0.0f, 0.0f, 1.0f, 1.0f) ]
+			case 2 => [ FloatBox2D new (0.0f, 0.0f, 0.5f, 1.0f), FloatBox2D new (0.5f, 0.0f, 0.5f, 1.0f) ]
+			case 3 || 4 => [ FloatBox2D new (0.0f, 0.0f, 0.5f, 0.5f), FloatBox2D new (0.5f, 0.0f, 0.5f, 0.5f), FloatBox2D new (0.0f, 0.5f, 0.5f, 0.5f), FloatBox2D new (0.5f, 0.5f, 0.5f, 0.5f) ]
+			case 5 || 6 || 7 || 8 || 9 =>
+				[
+					FloatBox2D new (0.0f, 0.0f, 0.33f, 0.33f), FloatBox2D new (0.33f, 0.0f, 0.33f, 0.33f), FloatBox2D new (0.66f, 0.0f, 0.34f, 0.33f),
+					FloatBox2D new (0.0f, 0.33f, 0.33f, 0.33f), FloatBox2D new (0.33f, 0.33f, 0.33f, 0.33f), FloatBox2D new (0.66f, 0.33f, 0.34f, 0.33f),
+					FloatBox2D new (0.0f, 0.66f, 0.33f, 0.34f), FloatBox2D new (0.33f, 0.66f, 0.33f, 0.34f), FloatBox2D new (0.66f, 0.66f, 0.34f, 0.34f),
+				]
 		}
 	}
 }
