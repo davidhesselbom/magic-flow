@@ -4,6 +4,7 @@ SourcePath: source/utility
 Requires: base
 Requires: draw
 Imports: Cropper
+Imports: FrameRateReducer
 Imports: GridRenderer
 Imports: FromGpu
 Imports: ImageCropper
