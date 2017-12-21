@@ -12,8 +12,7 @@ Consumer: abstract class extends Filter {
 			result = func(frame: Frame) {
 				//frame debug("consumer before receive")
 				this receive(frame)
-				frame debug("consumer after receive")
-				//frame decreaseReferenceCount()
+				//frame debug("consumer after receive")
 			}
 		else
 			result = func(frame: Frame) { }
