@@ -11,6 +11,8 @@ FrameRateReducer: class extends Filter {
 			result = func(frame: Frame) {
 				if (frame serial % this _divisor == 0)
 					this send(0, frame)
+				else
+					frame decreaseReferenceCount()
 			}
 		else
 			result = func(frame: Frame) { }

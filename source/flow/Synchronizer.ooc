@@ -17,8 +17,8 @@ _Storage: class {
 		if (frame serial >= this _serial) {
 			if (frame serial > this _serial)
 				this reset(frame serial)
-			frame increaseReferenceCount()
-			this _frames[sink] decreaseReferenceCount()
+			// frame increaseReferenceCount()
+			// this _frames[sink] decreaseReferenceCount()
 			this _frames[sink] = frame
 			this _filled += 1
 			if (this _filled == this _frames length)
@@ -30,7 +30,13 @@ Synchronizer: abstract class extends Filter {
 	_backend: _Storage
 	init: func(sinks: Int) {
 		super(1)
-		this _backend = _Storage new(sinks, func(frames: Frame[]) { this send(0, this merge(frames)) })
+		this _backend = _Storage new(sinks, func(frames: Frame[]) {
+			result := this merge(frames)
+			result increaseReferenceCount()
+			for (i in 0 .. frames length)
+				frames[i] decreaseReferenceCount()
+			this send(0, result)
+		})
 	}
 	merge: abstract func (frames: Frame[]) -> Frame
 	getInput: override func (index: Int) -> Func(Frame) {
