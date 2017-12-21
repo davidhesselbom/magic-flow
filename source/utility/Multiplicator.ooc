@@ -4,16 +4,16 @@ use opengl
 use flow
 
 Multiplicator: class extends Synchronizer {
-	_context : DrawContext
-	init: func (=_context) {
+	_map: OpenGLMapTransform
+	init: func (context: OpenGLContext) {
 		super(2)
+		this _map = OpenGLMapTransform new(slurp("Multiplicator.frag"), context)
 	}
 	merge: override func (frames: Frame[]) -> Frame {
-		map := OpenGLMapTransform new(slurp("Multiplicator.frag"), this _context as OpenGLContext)
-		map add("texture0", frames[0] data)
-		map add("texture1", frames[1] data)
+		this _map add("texture0", frames[0] data)
+		this _map add("texture1", frames[1] data)
 		result := frames[0] data as OpenGLMonochrome create()
-		DrawState new(result) setMap(map) draw()
+		DrawState new(result) setMap(this _map) draw()
 		frames[1] update(result)
 	}
 }
