@@ -1,0 +1,4 @@
+.git
+.libs
+rock_tmp
+*.h
