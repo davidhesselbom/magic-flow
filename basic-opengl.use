@@ -1,0 +1,3 @@
+Requires: flow
+SourcePath: demo/basic-opengl
+Main: BasicOpenGL.ooc
