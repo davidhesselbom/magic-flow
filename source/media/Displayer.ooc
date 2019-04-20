@@ -23,4 +23,8 @@ Displayer: class extends DisplayWriter {
 		this _writer = this _process stdIn writer()
 		this _process executeNoWait()
 	}
+	free: override func () {
+		_process kill()
+		super()
+	}
 }
