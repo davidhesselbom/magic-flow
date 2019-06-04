@@ -17,4 +17,8 @@ Saver: class extends DisplayWriter {
 	start: override func (size: IntVector2D, format: String) {
 		this _writer = FileWriter new(this _filename, false)
 	}
+	free: override func() {
+		this _writer free()
+		super()
+	}
 }
