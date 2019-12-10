@@ -18,7 +18,7 @@ Displayer: class extends DisplayWriter {
 		this _writer write(pointer as CString, length)
 	}
 	start: override func (size: IntVector2D, format: String) {
-		this _process = Process new(["avplay", "-hide_banner", "-loglevel", "panic", "-f", "rawvideo", "-pixel_format", format, "-framerate", _fps toString(), "-video_size", size x toString() + "x" + size y toString(), "-i", "-"])
+		this _process = Process new(["ffplay", "-hide_banner", "-loglevel", "panic", "-f", "rawvideo", "-pixel_format", format, "-framerate", _fps toString(), "-video_size", size x toString() + "x" + size y toString(), "-i", "-"])
 		this _process stdIn = Pipe new()
 		this _writer = this _process stdIn writer()
 		this _process executeNoWait()
